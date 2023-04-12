@@ -1,0 +1,97 @@
+\section{Languages}\label{sec:1.2}
+
+\begin{note}
+  We will be constructing a very restricted formal language, and our goal in constructing that language will be to be able to form certain statements about certain kinds of mathematical structures.
+  For our work, it will be necessary to be able to talk about constants, functions, and relations, and so we will need symbols to represent them.
+
+  Right now we are discussing the \emph{syntax} of our language, the marks on the paper.
+  We are not going to worry about the semantics, or meaning, of those marks until later---at least not formally.
+  But it is silly to pretend that the intended meanings do not drive our choice of symbols and the way in which we use them.
+\end{note}
+
+\begin{defn}\label{1.2.1}
+  A \textbf{\iindex{first-order language}} \(\Lc\) is an infinite collection of distinct symbols, no one of which is properly contained in another, separated into the following categories:
+  \begin{enumerate}
+    \item Parentheses:
+          \((, )\).
+    \item Connectives:
+          \(\lor, \lnot\).
+    \item Quantifier:
+          \(\forall\).
+    \item Variables, one for each positive integer \(n\):
+          \(v_1, v_2, \dots, v_n, \dots\).
+          The set of variable symbols will be denoted \(\Vars\).
+    \item Equality symbol:
+          \(=\).
+    \item Constant symbols:
+          Some set of zero or more symbols.
+    \item Function symbols:
+          For each positive integer \(n\), some set of zero or more \(n\)-ary function symbols.
+    \item Relation symbols:
+          For each positive integer \(n\), some set of zero or more \(n\)-ary relation symbols.
+  \end{enumerate}
+\end{defn}
+
+\begin{note}
+  We have been quite vague about the meaning of the word \emph{symbol}, but you are supposed to be thinking about marks made on a piece of paper.
+  We will be constructing sequences of symbols and trying to figure out what they mean in the next few pages.
+
+  We ought to add a word about the phrase ``no one of which is properly contained in another,'' which appears in \cref{1.2.1}.
+  By not letting one symbol be contained in another, we will find our job of interpreting sequences to be much easier.
+  For example, suppose that our language contained both the constant symbol \(\heartsuit\) and the constant symbol \(\heartsuit\heartsuit\)
+  (notice that the first symbol is properly contained in the second).
+  If you were reading a sequence of symbols and ran across \(\heartsuit\heartsuit\), it would be impossible to decide if this was one symbol or a sequence of two symbols.
+  By not allowing symbols to be contained in other symbols, this type of confusion is avoided, leaving the field open for other types of confusion to take its place.
+
+  To say that a function symbol is \(n\)-ary (or has arity \(n\)) means that it is intended to represent a function of \(n\) variables.
+  Similarly, an \(n\)-ary relation symbol will be intended to represent a relation on \(n\)-tuples of objects.
+  This will be made formal in \cref{1.6.1}.
+
+  To specify a language, all we have to do is determine which, if any, constant, function, and relation symbols we wish to use.
+  Many authors, by the way, let the equality symbol be optional, or treat the equality symbol as an ordinary binary (i.e., \(2\)-ary) relation symbol.
+  We will assume that each language has the equality symbol, unless specifically noted.
+\end{note}
+
+\begin{eg}\label{1.2.2}
+  Suppose that we were taking an abstract algebra course and we wanted to specify the language of groups.
+  A group consists of a set and a binary operation that has certain properties.
+  Among those properties is the existence of an identity element for the operation.
+  Thus, we could decide that our language will contain one constant symbol for the identity element, one binary operation symbol, and no relation symbols.
+  We would get
+  \[
+    \Lc_G \text{ is } \set{0, +},
+  \]
+  where \(0\) is the constant symbol and \(+\) is a binary function symbol.
+  Or perhaps we would like to write our groups using the operation as multiplication.
+  Then a reasonable choice could be
+  \[
+    \Lc_G \text{ is } \set{1, {}^{-1}, \cdot},
+  \]
+  which includes not only the constant symbol \(1\) and the binary function symbol \(\cdot\), but also a unary (or \(1\)-ary) function symbol \({}^{-1}\), which is designed to pick out the inverse of an element of the group.
+  As you can see, there is a fair bit of choice involved in designing a language.
+\end{eg}
+
+\begin{eg}\label{1.2.3}
+  The language of set theory is not very complicated at all.
+  We will include one binary relation symbol, \(\in\), and that is all:
+  \[
+    \Lc_{ST} \text{ is } \set{\in}.
+  \]
+  The idea is that this symbol will be used to represent the elementhood relation, so the interpretation of the string \(x \in y\) will be that the set \(x\) is an element of the set \(y\).
+  You might be tempted to add other relation symbols, such as \(\subset\), or constant symbols, such as \(\varnothing\), but it will be easier to define such symbols in terms of more primitive symbols.
+  Not easier in terms of readability, but easier in terms of proving things about the language.
+\end{eg}
+
+\begin{note}
+  In general, to specify a language we need to list the constant symbols, the function symbols, and the relation symbols.
+  There can be infinitely many [in fact, uncountably many (see \cref{ap:a})] of each.
+  So, here is a specification of a language:
+  \[
+    \Lc \text{ is } \set{c_1, c_2, \dots, f_1^{a(f_1)}, f_2^{a(f_2)}, \dots, R_1^{a(R_1)}, R_2^{a(R_2)}, \dots}
+  \]
+  Here, the \(c_i\)'s are the constant symbols, the \(f_i^{a(f_i)}\)'s are the function symbols, and the \(R_i^{a(R_i)}\)'s are the relation symbols.
+  The superscripts on the function and relation symbols indicate the arity of the associated symbols, so \(a\) is a mapping that assigns a natural number to a string that begins with an \(f\) or an \(R\), followed by a subscripted ordinal.
+  Fortunately, such dreadful detail will rarely be needed.
+  We will usually see only unary or binary function symbols and the arity of each symbol will be stated once.
+  Then the authors will trust that the context will remind the patient reader of each symbol's arity.
+\end{note}
