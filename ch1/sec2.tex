@@ -95,3 +95,203 @@
   We will usually see only unary or binary function symbols and the arity of each symbol will be stated once.
   Then the authors will trust that the context will remind the patient reader of each symbol's arity.
 \end{note}
+
+\exercisesection
+
+\begin{ex}\label{ex:1.2.1}
+  Carefully write out the symbols that you would want to have in a language \(\Lc\) that you intend to use to write statements of elementary algebra.
+  Indicate which of the symbols are constant symbols, and the arity of the function and relation symbols that you choose.
+  Now write out another language, \(\Mc\) (i.e., another list of symbols) with the same number of constant symbols, function symbols, and relation symbols that you would not want to use for elementary algebra.
+  Think about the value of good notation.
+\end{ex}
+
+\begin{proof}[\pf{ex:1.2.1}]
+  Let \(\Lc = \set{0, 1, +, \times, \leq}\), where \(0\) and \(1\) are constant symbols, \(+\) and \(\times\) are binary functions, and \(\leq\) is a binary relation.
+  Now we define \(\Mc = \set{A, B, C, D, E}\), where \(A\) and \(B\) are constant symbols, \(C\) and \(D\) are binary functions, and \(E\) is a binary relation.
+  The two expressions \(1 + 1\) and \(1 \times 1\) in the language \(\Lc\) can be expressed as \(B C B\) and \(B D B\) in the language \(\Mc\).
+  Clearly, \(\Mc\) is confusing and we would not want to use \(\Mc\) as the language for elementary algebra.
+\end{proof}
+
+\begin{ex}\label{ex:1.2.2}
+  What are good examples of unary (\(1\)-ary) functions?
+  Binary functions?
+  Can you find natural examples of relations with arity \(1, 2, 3\), and \(4\)?
+  As you think about this problem, stay mindful of the difference between the function and the function symbol, between the relation and the relation symbol.
+\end{ex}
+
+\begin{proof}[\pf{ex:1.2.2}]
+  A good example of an unary function is negation \(-\), which takes one number as argument and return the negation of the argument.
+  A good example of a binary function is addition \(+\), which takes two numbers as arguments and return the sum of the arguments.
+
+  For unary relation, consider the odd numbers.
+  For binary relation, consider the order of numbers.
+  For ternary relation, consider the collinearity of three points on a plane.
+  For quaternary relation, consider the divisor, the dividend, the quotient, and the remainder when performing division on numbers.
+\end{proof}
+
+\begin{ex}\label{ex:1.2.3}
+  In the town of Sneezblatt there are three eating establishments:
+  McBurgers, Chez Fancy, and Sven's Tandoori Palace.
+  Think for a minute about statements that you might want to make about these restaurants, and then write out \(\Lc\), the formal language for your theory of restaurants.
+  Have fun with this, but try to include both function and relation symbols in \(\Lc\).
+  What interpretations are you planning for your symbols?
+\end{ex}
+
+\begin{proof}[\pf{ex:1.2.3}]
+  Let \(\Lc = \set{M, C, S, m, c, s, p, \leq}\).
+  \(M, C, S, m, c, s\) are constant symbols.
+  \(M, C, S\) stand for McBurgers, Chez Fancy, and Sven's Tandoori Palace, respectively.
+  \(m, c, s\) are foods solded at McBurgers, Chez Fancy, and Sven's Tandoori Palace, respectively.
+  \(p\) is a binary function with domain \(\set{(M, m), (C, c), (S, s)}\) and codomain \(\R\), and it means the price of the food at a restaurant.
+  So ``The price for \(m\) at \(M\) is \(p(M, m)\)'' is a valid statement.
+  \(\leq\) is a binary relation which compare prices.
+  So we might have relations like ``\(P(M, m) \leq P(C, c)\)'' or ``\(P(C, c) \leq P(S, s)\)''.
+\end{proof}
+
+\begin{ex}\label{ex:1.2.4}
+  You have been put in charge of drawing up the schedule for a basketball league.
+  This league involves eight teams, each of which must play each of the other seven teams exactly two times:
+  once at home and once on the road.
+  Think of a reasonable language for this situation.
+  What constants would you need?
+  Do you need any relation symbols?
+  Function symbols?
+  It would be nice if your finished schedule did not have any team playing two games on the same day.
+  Can you think of a way to state this using the formal symbols that you have chosen?
+  Can you express the sentence which states that each team plays every other team exactly two times?
+\end{ex}
+
+\begin{proof}[\pf{ex:1.2.4}]
+  Let \(\Lc = \set{T_1, \dots, T_8, D, S}\).
+  \(T_1, \dots, T_8\) are constant symbols for each team.
+  \(S\) is a binary relation representing the set of schedules.
+  Arguments of \(S\) are teams and the team used as the first argument plays at home.
+  To make each team play each of the other seven teams exactly two times, we need to set
+  \[
+    S = \set{T_1, \dots, T_8}^2 \setminus \set{(T_1, T_1), \dots, (T_8, T_8)}.
+  \]
+  So there are \(8 \times 7 = 56\) games needed to be schedule.
+  \(D\) is a binary function with domain \(S\) and codomain dates.
+  If we make \(D\) a one-to-one function, then there will be no teams playing two games on the same day.
+\end{proof}
+
+\begin{ex}\label{ex:1.2.5}
+  Let's work out a language for elementary trigonometry.
+  To get you started, let us suggest that you start off with lots of constant symbols---one for each real number.
+  It is tempting to use the symbol \(7\) to stand for the number seven, but this runs into problems.
+  (Do you see why this is illegal?
+  \(7, 77, 7/3, \dots\))
+  Now, what functions would you like to discuss?
+  Think of symbols for them.
+  What are the arities of your function symbols?
+  Do not forget that you need symbols for addition and multiplication!
+  What relation symbols would you like to use?
+\end{ex}
+
+\begin{proof}[\pf{ex:1.2.5}]
+  Let \(\Lc = \set{c_x, \dots, +, \times, r, \leq}\).
+  For each \(x \in \R\), there is a constant symbol \(c_x\) represent \(x\).
+  \(+\) and \(\times\) are binary functions with the usual meaning and takes two real numbers as arguments.
+  \(r\) is a quaternary function taking four real numbers as arguments.
+  The first two arguments of \(r\) are treated as coordinate of a point, same as the last two arguments.
+  \(r\) returns the radius between two points originated from the origin.
+  \(\leq\) is a binary relation with the usual meaning.
+  We can of course use \(\leq\) to compare radius.
+\end{proof}
+
+\begin{ex}\label{ex:1.2.6}
+  A computer language is another example of a language.
+  For example, the symbol \(\coloneqq\) might be a binary function symbol, where the interpretation of the instruction
+  \[
+    x \coloneqq 7
+  \]
+  would be to alter the internal state of the computer by placing the value \(7\) into the position in memory referenced by the variable \(x\).
+  Think about the function associated with the binary function symbol
+  \[
+    \text{if } \rule{1cm}{0.15mm}, \text{then } \rule{1cm}{0.15mm}.
+  \]
+  What are the inputs into this function?
+  What sort of thing does the function do?
+  Look at the statement
+  \[
+    \text{if } x + y > 3, \text{then } z \coloneqq 7.
+  \]
+  Identify the function symbols, constant symbols, and relation symbols.
+  What are the arities of each function and relation symbol?
+\end{ex}
+
+\begin{proof}[\pf{ex:1.2.6}]
+  The first input to the if-then function is a boolean value, and the second is an instruction.
+  The if-then function returns the same boolean value as the first input.
+  When the first input is true, the second input is executed.
+
+  Now we define the language of a computer.
+  Let \(\Lc = \set{0, 1, T, F, +, >, \coloneqq}\).
+  \(0, 1, T, F\) are constant symbols, \(T, F\) stand for boolean values.
+  \(+\) and \(>\) are binary functions with usual meaning.
+  \(\coloneqq\) is a binary function as stated in the first paragraph.
+\end{proof}
+
+\begin{ex}\label{ex:1.2.7}
+  What would be a good language for the theory of vector spaces?
+  This problem is slightly more difficult, as there are two different varieties of objects, scalars and vectors, and you have to be able to tell them apart.
+  Write out the axioms of vector spaces in your language.
+  Or, better yet, use a language that includes a unary function symbol for each real number so that scalars don't exist as objects at all!
+\end{ex}
+
+\begin{proof}[\pf{ex:1.2.7}]
+  Let \(\Lc = \set{1, 0_v, +, \cdot, +_v, \cdot_v}\).
+  \(0, 1\) are constant symbols representing additive and multiplicative identities of scalar.
+  \(0_v\) is a constant symbol representing additive identities of vector.
+  \(+, \cdot\) are binary functions for field addition and multiplication.
+  \(+_v, \cdot_v\) are binary functions for vector addition and scalar multiplication.
+
+  Now we write the vector space axioms in the language \(\Lc\).
+  Let \(\mathsf{V}, \F\) be sets where \(\F\) obey the field axioms.
+  Let \(x, y, z \in \mathsf{V}\) and let \(a, b \in \F\) be scalars.
+  We say \(\mathsf{V}\) is a vector space over \(\F\) if \((\mathsf{V}, \F)\) obeys the following \(10\) axioms:
+  \begin{enumerate}
+    \item \(x +_v y \in \mathsf{V}\).
+    \item \(a \cdot_v x \in \mathsf{V}\).
+    \item \(x +_v y = y +_v x\).
+    \item \((x +_v y) +_v z = x +_v (y +_v z)\).
+    \item There exists a \(0_v \in \mathsf{V}\) such that \(x +_v 0_v = x\) for every \(x \in \mathsf{V}\).
+    \item For each \(x \in \mathsf{V}\), there exists a \(y \in \mathsf{V}\) such that \(x +_v y = 0_v\).
+    \item \(1 \cdot_v x = x\).
+    \item \((a \cdot b) \cdot_v x = a \cdot (b \cdot_v x)\).
+    \item \(a \cdot_v (x +_v y) = a \cdot_v x +_v a \cdot_v y\).
+    \item \((a + b) \cdot_v x = a \cdot_v x +_v b \cdot_v x\).
+  \end{enumerate}
+
+  Now we include a unary function \(\cdot_c\) for each \(c \in \F\).
+  Our language \(\Lc\) becomes
+  \[
+    \Lc = \set{0_v, +, \cdot, +_v, \cdot_c, \dots}.
+  \]
+  We rewrite the vector space axioms as follow:
+  \begin{enumerate}
+    \item \(x +_v y \in \mathsf{V}\).
+    \item \(\cdot_a(x) \in \mathsf{V}\).
+    \item \(x +_v y = y +_v x\).
+    \item \((x +_v y) +_v z = x +_v (y +_v z)\).
+    \item There exists a \(0_v \in \mathsf{V}\) such that \(x +_v 0_v = x\) for every \(x \in \mathsf{V}\).
+    \item For each \(x \in \mathsf{V}\), there exists a \(y \in \mathsf{V}\) such that \(x +_v y = 0_v\).
+    \item \(\cdot_1(x) = x\).
+    \item \(\cdot_{(a \cdot b)}(x) = \cdot_a(\cdot_b(x))\).
+    \item \(\cdot_a(x +_v y) = \cdot_a(x) +_v \cdot_a(y)\).
+    \item \(\cdot_{(a + b)}(x) = \cdot_a(x) +_v \cdot_b(x)\).
+  \end{enumerate}
+\end{proof}
+
+\begin{ex}\label{ex:1.2.8}
+  It is not actually necessary to include function symbols in the language, since a function is just a special kind of relation.
+  Just to see an example, think about the function \(f : \N \to \N\) defined by \(f(x) = x^2\).
+  Remembering that a relation on \(\N \times \N\) is just a set of ordered pairs of natural numbers, find a relation \(R\) on \(\N \times \N\) such that \((x, y)\) is an element of \(R\) iff \(y = f(x)\).
+  Convince yourself that you could do the same for any function defined on any domain.
+  What condition must be true if a relation \(R\) on \(A \times B\) is to be a function mapping \(A\) to \(B\)?
+\end{ex}
+
+\begin{proof}[\pf{ex:1.2.8}]
+  The relation \(R = \set{(x, x^2) : x \in \N}\).
+  The condition for a relation \(R\) on \(A \times B\) to be a function \(A \mapsto B\) is that each element of \(A\) must show up as the first element of each \(2\)-tuple of \(R\) exactly once.
+\end{proof}

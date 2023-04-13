@@ -192,3 +192,15 @@
 
 % We define command \iindex so that we don't need to type the same index term twice.
 \NewDocumentCommand{\iindex}{m}{#1\index{#1}}
+
+%------------------------------------------------------------------------------
+% Set up exercise section.
+%------------------------------------------------------------------------------
+
+% Formatting exercises section.
+\NewDocumentCommand{\exercisesection}{}{
+  \begin{center}
+    --- Exercises ---
+  \end{center}
+}
+
