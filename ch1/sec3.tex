@@ -1,0 +1,290 @@
+\section{Terms and Formulas}\label{sec:1.3}
+
+\begin{note}
+  The point of having a language is to be able to make statements about certain kinds of mathematical systems.
+  Thus, we will want the statements in our language to have the ability to refer to objects in the mathematical structures under consideration.
+  So we will need some of the strings in our language to refer to those objects.
+  Those strings are called the terms of a language.
+\end{note}
+
+\begin{defn}\label{1.3.1}
+  If \(\Lc\) is a language, a \textbf{\iindex{term} of \(\Lc\)} is a nonempty finite string \(t\) of symbols from \(\Lc\) such that either:
+  \begin{enumerate}
+    \item \(t\) is a variable, or
+    \item \(t\) is a constant symbol, or
+    \item \(t \seq f t_1 t_2 \dots t_n\), where \(f\) is an \(n\)-ary function symbol of \(\Lc\) and each of the \(t_i\) is a term of \(\Lc\).
+  \end{enumerate}
+  The symbol \(\seq\) is not a part of the language \(\Lc\).
+  Rather it is a \iindex{meta-linguistic} symbol that means that the strings of \(\Lc\)-symbols on each side of the \(\seq\) are identical.
+  Probably the best natural way to read clause (c) would be to say that ``\(t\) is \(f t_1 t_2 \dots t_n\).''
+\end{defn}
+
+\begin{note}
+  \cref{1.3.1} is a definition by recursion, since in \cref{1.3.1}(c), \(t\) is a term if it contains substrings that are terms.
+  Since the substrings of \(t\) are shorter (contain fewer symbols) than \(t\), and as none of the symbols of \(\Lc\) are made up of other symbols of \(\Lc\), this causes no problems.
+\end{note}
+
+\begin{note}
+  We will use \textbf{\iindex{Polish notation}} for functions rather than the \textbf{\iindex{infix notation}} that you are used to.
+  Notice that in the application of the function symbols, there are no parentheses and no commas.
+  Also notice that all of our functions are written with the operator on the left.
+  The reason for this is for consistency and to make sure that we can parse our expressions in only one way.
+  This property, called \textbf{\iindex{unique readability}}, is addressed in \cref{ex:1.4.7}.
+
+  Unique readability is one of those things that, in the opinion of the authors, is important to know, interesting to prove, and boring to read.
+\end{note}
+
+\begin{note}
+  The terms of \(\Lc\) play the role of the nouns of the language.
+  To make meaningful mathematical statements about some mathematical structure, we will want to be able to make assertions about the objects of the structure.
+  These assertions will be the formulas of \(\Lc\).
+\end{note}
+
+\setcounter{thm}{2}
+\begin{defn}\label{1.3.3}
+  If \(\Lc\) is a first-order language, a \textbf{\iindex{formula} of \(\Lc\)} is a nonempty finite string \(\phi\) of symbols from \(\Lc\) such that either:
+  \begin{enumerate}
+    \item \(\phi \seq = t_1 t_2\), where \(t_1\) and \(t_2\) are terms of \(\Lc\), or
+    \item \(\phi \seq R t_1 t_2 \dots t_n\), where \(R\) is an \(n\)-ary relation symbol of \(\Lc\) and \(t_1, t_2, \dots, t_n\) are all terms of \(\Lc\), or
+    \item \(\phi \seq (\lnot \alpha)\), where \(\alpha\) is a formula of \(\Lc\), or
+    \item \(\phi \seq (\alpha \lor \beta)\), where \(\alpha\) and \(\beta\) are formulas of \(\Lc\), or
+    \item \(\phi \seq (\forall v)(\alpha)\), where \(v\) is a variable and \(\alpha\) is a formula of \(\Lc\).
+  \end{enumerate}
+  If a formula \(\psi\) contains the \iindex{subformula} \((\forall v)(\alpha)\)
+  [meaning that the string of symbols that constitute the formula \((\forall v)(\alpha)\) is a substring of the string of symbols that make up \(\psi\)],
+  we will say that the \textbf{\iindex{scope}} of the quantifier \(\forall\) is \(\alpha\).
+  Any symbol in \(\alpha\) will be said to \iindex{lie within the scope} of the quantifier \(\forall\).
+  Notice that a formula \(\psi\) can have several different occurrences of the symbol \(\forall\), and each occurrence of the quantifier will have its own scope.
+  Also notice that one quantifier can lie within the scope of another.
+
+  The \textbf{\iindex{atomic formulas}} of \(\Lc\) are those formulas that satisfy clause (a) or (b) of \cref{1.3.3}.
+\end{defn}
+
+\begin{note}
+  You have undoubtedly noticed that there are no parentheses or commas in the atomic formulas, and you have probably decided that we will continue to use both commas and infix notation as seems appropriate.
+  Also notice that we \emph{are} using infix notation for the binary logical connective \(\lor\).
+  We hope that this will make your life somewhat easier.
+\end{note}
+
+\begin{note}
+  You will be asked in \cref{ex:1.4.8} to prove that unique readability holds for formulas as well as terms.
+  We will, in our exposition, use different-size parentheses, different shapes of delimiters, and omit parentheses in order to improve readability without (we hope) introducing confusion on your part.
+\end{note}
+
+\begin{note}
+  \emph{Notice that a term is not a formula!}
+  If the terms are the nouns of the language, the formulas will be the statements.
+  Statements can be either true or false.
+  Nouns cannot.
+  Much confusion can be avoided if you keep this simple dictum in mind.
+
+  For example, suppose that you are looking at a string of symbols and you notice that the string does not contain either the symbol \(=\) or any other relation symbol from the language.
+  Such a string cannot be a formula, as it makes no claim that can be true or false.
+  The string might be a term, it might be nonsense, but it cannot be a formula.
+
+  We do hope that you have noticed that we are dealing only with the syntax of our language here.
+  We have not mentioned that the symbol \(\lnot\) will be used for denial, or that \(\lor\) will mean ``or,'' or even that \(\forall\) means ``for every.''
+  Don't worry, they will mean what you think they should mean.
+  Similarly, do not worry about the fact that the definition of a formula left out symbols for conjunctions, implications, and biconditionals.
+  We will get to them in good time.
+\end{note}
+
+\exercisesection
+
+\begin{ex}\label{ex:1.3.1}
+  Suppose that the language \(\Lc\) consists of two constant symbols, \(\diamondsuit\) and \(\heartsuit\), a unary relation symbol \(\yen\), a binary function symbol \(\flat\), and a 3-ary function symbol \(\sharp\).
+  Write down at least three distinct terms of the language \(\Lc\).
+  Write down a couple of nonterms that look like they might be terms and explain why they are not terms.
+  Write a couple of formulas and a couple of nonformulas that look like they ought to be formulas.
+\end{ex}
+
+\begin{proof}[\pf{ex:1.3.1}]
+  Three distinct terms:
+  \begin{itemize}
+    \item \(\diamondsuit\).
+    \item \(\heartsuit\).
+    \item \(\flat \diamondsuit \heartsuit\).
+  \end{itemize}
+  Some nonterms:
+  \begin{itemize}
+    \item \(\diamondsuit \diamondsuit\).
+          It is not a term since it is consist of consecutive constant symbols without function symbol at the begining.
+    \item \(\flat \diamondsuit \diamondsuit \diamondsuit\) and \(\sharp \diamondsuit \diamondsuit\).
+          Both are not terms since they have wrong number of arguments.
+  \end{itemize}
+  Some formulas:
+  \begin{itemize}
+    \item \(= \diamondsuit \heartsuit\).
+    \item \(\yen \heartsuit\).
+  \end{itemize}
+  Some nonformulas:
+  \begin{itemize}
+    \item \(\diamondsuit \diamondsuit\).
+          It is not a formula since it is consist of consecutive constant symbols without relation symbol at the begining.
+    \item \(\yen \diamondsuit \diamondsuit\).
+          It is not a formula since it has wrong number of arguments.
+  \end{itemize}
+\end{proof}
+
+\begin{ex}\label{ex:1.3.2}
+  The fact that we write all of our operations on the left is important for unique readability.
+  Suppose, for example, that we wrote our binary operations in the middle (and did not allow the use of parentheses).
+  If our language included the binary function symbol \(\#\), then the term
+  \[
+    u \# v \# w
+  \]
+  could be interpreted two ways.
+  This can make a difference:
+  Suppose that the operation associated with the function symbol \(\#\) is ``subtract.''
+  Find three real numbers \(u, v\), and \(w\) such that the two different interpretations of \(u \# v \# w\) lead to different answers.
+  Any nonassociative binary function will yield another counterexample to unique readability.
+  Can you think of three such functions?
+\end{ex}
+
+\begin{proof}[\pf{ex:1.3.2}]
+  Let \(u = v = w = 1\).
+  Then we have \((u - v) - w = -1\) while \(u - (v - w) = 1\).
+  Three binary functions that are nonassociative are division \(/\), exponentiation \(\hat{}\), and Cartesian product \(\times\).
+\end{proof}
+
+\begin{ex}\label{ex:1.3.3}
+  The language of number theory is
+  \[
+    \Lc_{NT} \text{ is } \set{0, S, +, \cdot, E, <},
+  \]
+  where the intended meanings of the symbols are as follows:
+  \(0\) stands for the number zero, \(S\) is the successor function \(S(x) = x + 1\), the symbols \(+\), \(\cdot\), and \(<\) mean what you expect, and \(E\) stands for exponentiation, so \(E(3, 2) = 9\).
+  Assume that \(\Lc_{NT}\)-formulas will be interpreted with respect to the nonnegative integers and write an \(\Lc_{NT}\)-formula to express the claim that \(p\) is a prime number.
+  Can you write the statement of \iindex{Lagrange's Theorem}, which states that every natural number is the sum of four squares?
+
+  Write a formula stating that there is no largest prime number.
+  How would we express the \iindex{Goldbach Conjecture}, that every even number greater than two can be expressed as the sum of two primes?
+
+  What is the formal statement of the \iindex{Twin Primes Conjecture}, which says that there are infinitely many pairs \((x, y)\) such that \(x\) and \(y\) are both prime and \(y = x + 2\)?
+  \iindex{The Bounded Gap Theorem}, proven in 2013, says that there are infinitely many pairs of prime numbers that differ by \(70,000,000\) or less.
+  Write a formal statement of that theorem.
+
+  Use shorthand in your answers to this problem.
+  For example, after you have found the formula which says that \(p\) is prime, call the formula \(\operatorname{Prime}(p)\), and use \(\operatorname{Prime}(p)\) in your later answers.
+\end{ex}
+
+\begin{proof}[\pf{ex:1.3.3}]
+  We know that \(p\) is a prime number iff \(1 < p\) and \(a \cdot b \neq p\) for every number \(1 < a, b < p\).
+  So we can express \(\operatorname{Prime}(p)\) as follow:
+  \[
+    \operatorname{Prime}(p) \seq \big[(1 < p) \land \big(\forall a\big)\big([\forall b][(a + 2) \cdot (b + 2) \neq p]\big)\big].
+  \]
+  Replacing \(2\) with \(S[S(0)]\) and expressing \(\operatorname{Prime}(p)\) only with \(\lor, \lnot\), and \(=\), we get
+  \[
+    \operatorname{Prime}(p) \seq \Bigg[\lnot\Bigg([\lnot(1 < p)] \lor \bigg[\lnot\bigg(\forall a\bigg)\bigg(\Big[\forall b\Big]\Big[\Big(\lnot \big[\big(a + S[S(0)]\big) \cdot \big(b + S[S(0)]\big) = p\big]\Big)\Big]\bigg)\bigg]\Bigg)\Bigg].
+  \]
+  Expressing \(\operatorname{Prime}(p)\) with Polish notation, we get
+  \[
+    \operatorname{Prime} p \seq \Big[\lnot\Big([\lnot(1 < p)] \lor \big[\lnot\big(\forall a\big)\big([\forall b][(\lnot = \cdot + a S S 0 + b S S 0 p)]\big)\big]\Big)\Big].
+  \]
+
+  Next, we write the statement of Lagrange's Theorem.
+  \[
+    \Big[\forall n\Big]\Big[\Big(\forall a\Big)\Big(\big[\forall b\big]\big[\big(\forall c\big)\big([\forall d][n = E(a, 2) + E(b, 2) + E(c, 2) + E(d, 2)]\big)\big]\Big)\Big].
+  \]
+  Replacing \(2\) with \(S S 0\) and expressing Lagrange's Theorem with Polish notation, we get
+  \[
+    \Big(\forall n\Big)\Big(\big[\forall a\big]\big[\big(\forall b\big)\big([\forall c][(\forall d)(= n + + + E a S S 0 E b S S 0 E c S S 0 E d S S 0)]\big)\big]\Big).
+  \]
+
+  Next, we write a formula stating that there is no largest prime number.
+  \[
+    \big[\forall p\big]\big[\big(\exists q\big)\big([\operatorname{Prime}(q) \land (p < q)]\big)\big].
+  \]
+  Expressing the formula only with \(\lor, \lnot\), and \(\forall\), we get
+  \[
+    \Big[\forall p\Big]\Big[\Big(\lnot \big[\forall q\big]\big[\big([\lnot \operatorname{Prime}(q)] \lor [\lnot p < q]\big)\big]\Big)\Big].
+  \]
+  Expressing the formula with Polish notation, we get
+  \[
+    \Big(\forall p\Big)\Big(\big[\lnot \big(\forall q\big)\big([(\lnot \operatorname{Prime} q) \lor (\lnot < p q)]\big)\big]\Big).
+  \]
+
+  Next, we write the statement that \(n\) is even.
+  \[
+    \operatorname{Even}(n) \seq (\exists m)(2 \cdot m = n).
+  \]
+  Replacing \(2\) with \(S[S(0)]\) and expressing \(\operatorname{Even}(p)\) only with \(\lnot\) and \(\forall\), we get
+  \[
+    \operatorname{Even}(n) \seq \Big[\lnot \Big(\forall m\Big)\Big(\big[\lnot \big(S[S(0)] \cdot m = n\big)\big]\Big)\Big].
+  \]
+  Expressing \(\operatorname{Even}(p)\) with Polish notation, we get
+  \[
+    \operatorname{Even} n \seq \big(\lnot [\forall m][(\lnot = \cdot S S 0 m n)]\big).
+  \]
+
+  Next, we write the statement of the Goldbach Conjecture.
+  We start by expressing ``there exists two primes \(a, b\) such that \(n\) is the sum of \(a, b\)'' as follow:
+  \[
+    \operatorname{G}(n) \seq \Big(\exists a\Big)\Big(\big[\operatorname{Prime}(a) \land \big(\exists b\big)\big([\operatorname{Prime}(b) \land (n = a + b)]\big)\big]\Big).
+  \]
+  Expressing \(\operatorname{G}(n)\) only with \(\lor, \lnot\) and \(\forall\), we get
+  \[
+    \operatorname{G}(n) \seq \bigg(\lnot \Big[\forall a\Big]\Big[\Big(\big[\lnot \operatorname{Prime}(a)\big] \lor \big[\forall b\big]\big[\big([\lnot \operatorname{Prime}(b)] \lor [\lnot (n = a + b)]\big)\big]\Big)\Big]\bigg).
+  \]
+  Expressing \(\operatorname{G}(n)\) with Polish notation, we get
+  \[
+    \operatorname{G} n \seq \Big[\lnot \Big(\forall a\Big)\Big(\big[\big(\lnot \operatorname{Prime} a\big) \lor \big(\forall b\big)\big([(\lnot \operatorname{Prime} b) \lor (\lnot = n + a b)]\big)\big]\Big)\Big].
+  \]
+  Now we express the Goldbach Conjecture:
+  \[
+    \big(\forall n\big)\big([\operatorname{Even}(n) \land (2 < n)] \to \operatorname{G}(n)\big).
+  \]
+  Replacing \(2\) with \(S[S(0)]\) and expressing the Goldbach Conjecture only with \(\lor, \lnot\) and \(\forall\), we get
+  \[
+    \bigg(\forall n\bigg)\bigg(\Big[\Big([\lnot \operatorname{Even}(n)] \lor \big[\lnot \big(S[S(0)] < n\big)\big]\Big) \lor \operatorname{G}(n)\Big]\bigg).
+  \]
+  Expressing the Goldbach Conjecture with Polish notation, we get
+  \[
+    \big[\forall n\big]\big[\big([(\lnot \operatorname{Even} n) \lor (\lnot < S S 0 n)] \lor \operatorname{G} n\big)\big].
+  \]
+
+  Next, we express the Twin Primes Conjecture:
+  \[
+    \Big(\forall x\Big)\Big(\big[\exists y\big]\big[\big([(x < y) \land \operatorname{Prime}(y)] \land \operatorname{Prime}(y + 2)\big)\big]\Big).
+  \]
+  Replacing \(2\) with \(S[S(0)]\) and expressing the Twin Primes Conjecture only with \(\lor, \lnot\) and \(\forall\), we get
+  \[
+    \bigg[\forall x\bigg]\bigg[\bigg(\lnot \Big[\forall y\Big]\Big[\Big(\big([\lnot (x < y)] \lor [\lnot \operatorname{Prime}(y)]\big) \lor \big[\lnot \operatorname{Prime}\big(y + S[S(0)]\big)\big]\Big)\Big]\bigg)\bigg].
+  \]
+  Expressing the Twin Primes Conjecture with Polish notation, we get
+  \[
+    \Big[\forall x\Big]\Big[\Big(\lnot \big[\forall y\big]\big[\big([(\lnot < x y) \lor (\lnot \operatorname{Prime} y)] \lor [\lnot \operatorname{Prime} + y S S 0]\big)\big]\Big)\Big].
+  \]
+
+  Finally, we express the Bounded Gap Theorem.
+  Let \(c\) be the constant symbol represent \(70,000,000\).
+  Then the Bounded Gap Theorem can be expressed as follow:
+  \[
+    \bigg[\forall x\bigg]\bigg[\bigg(\exists y\bigg)\bigg(\Big[\exists z\Big]\Big[\Big(\big[\big([(x < y) \land (x < z)] \land \operatorname{Prime}(y)\big) \land \operatorname{Prime}(z)\big] \land (y < z + c)\Big)\Big]\bigg)\bigg].
+  \]
+  Expressing the Bounded Gap Theorem only with \(\lor, \lnot\) and \(\forall\), we get
+  \begin{multline*}
+    \Bigg(\forall x\Bigg)\Bigg(\bigg[\lnot \bigg(\forall y\bigg)\bigg(\Big[\forall z\Big] \\
+        \Big[\Big(\big[\big([(\lnot x < y) \lor (\lnot x < z)] \lor [\lnot \operatorname{Prime}(y)]\big) \lor [\lnot \operatorname{Prime}(z)]\big] \lor (\lnot y < z + c)\Big)\Big]
+        \bigg)\bigg]\Bigg).
+  \end{multline*}
+  Expressing the Bounded Gap Theorem with Polish notation, we get
+  \begin{multline*}
+    \Bigg(\forall x\Bigg)\Bigg(\bigg[\lnot \bigg(\forall y\bigg)\bigg(\Big[\forall z\Big] \\
+        \Big[\Big(\big[\big([(\lnot < x y) \lor (\lnot < x z)] \lor [\lnot \operatorname{Prime} y]\big) \lor \big(\lnot \operatorname{Prime} z\big)\big] \lor \big[\lnot < y + z c\big]\Big)\Big]
+        \bigg)\bigg]\Bigg).
+  \end{multline*}
+\end{proof}
+
+\begin{ex}\label{ex:1.3.4}
+  Suppose that our language has infinitely many constant symbols of the form \(', '', ''', \dots\) and no function or relation symbols other than \(=\).
+  Explain why this situation leads to problems by looking at the formula \(=''''''\).
+  Where in our definitions do we outlaw this sort of problem?
+\end{ex}
+
+\begin{proof}[\pf{ex:1.3.4}]
+  The problem is we have more than one way to parse the expression.
+  In the example \(=''''''\), we have five way to parse the expression, namely \(=(')(''''')\), \(=('')('''')\), \(=(''')(''')\), \(=('''')('')\), and \(=(''''')(')\).
+  We outlaw this sort of problem by restricting symbols so that none of which is properly contained in another (see \cref{1.2.1}).
+\end{proof}
